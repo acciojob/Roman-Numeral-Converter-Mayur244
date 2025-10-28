@@ -1,21 +1,28 @@
 function convertToRoman(num) {
   	const obj = {
-      0:['M',1000], 
-      1:['D', 500], 
-      2:['C', 100], 
-      3:['L', 50], 
-      4:['X', 10], 
-      5:['V', 5], 
-      6:['I', 1]
+      0:['M', 1000],
+  1:['CM', 900],
+  2:['D', 500],
+  3:['CD', 400],
+  4:['C', 100],
+  5:['XC', 90],
+  6:['L', 50],
+  7:['XL', 40],
+  8:['X', 10],
+  9:['IX', 9],
+  10:['V', 5],
+  11:['IV', 4],
+  12:['I', 1],
     };
 
   //your code here
-	let roman = "";
+	let res = "";
 
-	for(let i = 0; i < 7; i++){
-		while(num >= obj[0][1]){
-			roman += obj[0][0];
-			num -= obj[0][1];
+	for(let i = 0; i < 13; i++){
+		const [roman, value] = obj[i];
+		while(num >= value){
+			res += roman;
+			num -= value;
 		}
 	}
 
